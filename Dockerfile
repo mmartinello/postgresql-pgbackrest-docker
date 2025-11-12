@@ -8,7 +8,7 @@ ARG PG_MAJOR=17
 ARG DEBIAN_RELEASE=trixie
 
 # Starting from PostgreSQL image
-FROM postgres:$PG_MAJOR-$DEBIAN_RELEASE as builder
+FROM postgres:$PG_MAJOR-$DEBIAN_RELEASE AS builder
 
 # Create a new image
 FROM scratch
