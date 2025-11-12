@@ -2,17 +2,23 @@
 # PostGIS, pgRouting and Patroni
 
 # PostgreSQL major version
-ARG PG_MAJOR=16
+ARG PG_MAJOR=17
+
+# Debian release
+ARG DEBIAN_RELEASE=trixie
 
 # Starting from PostgreSQL image
-FROM postgres:$PG_MAJOR as builder
+FROM postgres:$PG_MAJOR-$DEBIAN_RELEASE as builder
 
 # Create a new image
 FROM scratch
 COPY --from=builder / /
 
 # PostgreSQL major version
-ARG PG_MAJOR=16
+ARG PG_MAJOR=17
+
+# Debian release
+ARG DEBIAN_RELEASE=trixie
 
 # PostgreSQL additional version (will additionally installed beyond the major
 # version specified before only if this variable is specified)
